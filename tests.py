@@ -38,7 +38,6 @@ def fortran_sum(r,soft):
 def numpy_sum(r,soft):
     return np.sum(r)
 
-soft = 1.e-2
 
 def time_func(f):
     start = time()
@@ -47,20 +46,23 @@ def time_func(f):
     print("%-20s Result=%10f Time=%10f"%(f.__name__,result,end-start))
 
 
-for N in [1000,2000,5000]:
-    print("N=",N)
+if __name__ == '__main__':
+    soft = 1.e-2
 
-    r = np.random.random((N,3))
-    
-    time_func(two_loop_pot)
-    time_func(magic_index_pot)
-    time_func(one_loop_pot)
-    time_func(fortran_two_loop_pot)
+    for N in [5000]:#,2000,5000]:
+        print("N=",N)
 
-    print("")
+        r = np.random.random((N,3))
 
-    time_func(numpy_sum)
-    time_func(fortran_sum)
+        # time_func(two_loop_pot)
+        time_func(magic_index_pot)
+        # time_func(one_loop_pot)
+        # time_func(fortran_two_loop_pot)
 
-    print("\n")
+        print("")
+
+        time_func(numpy_sum)
+        # time_func(fortran_sum)
+
+        print("\n")
 
