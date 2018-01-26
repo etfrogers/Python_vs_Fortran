@@ -1,5 +1,5 @@
 import numpy as np
-from fort_pot import fort_pot
+#from fort_pot import fort_pot
 from time import time
 
 def two_loop_pot(r,soft):
